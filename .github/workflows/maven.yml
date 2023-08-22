@@ -1,0 +1,28 @@
+
+
+name: Bulidanddeploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Downloading code
+      uses: actions/checkout@v3
+      
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B clean deploy -DmuleDeploy -s settings.xml --file pom.xml -Dmule.env=dev -Danypoint.platform.client_id=6f66296d05ab44d199163ee9022d6ab6 -Danypoint.platform.client_secret=49cC1b6fc3e54718885803F880fbFB91 -Dclient_Id=337e9b9723174b9a8cd50f0f9aac9bd5 -Dclient_Secret=A4Ac3b40FE414E01804dE64480BB748c
+

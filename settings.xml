@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<settings>
+<servers>
+<server>
+<id>connectedapp</id>
+<username>~~~client~~~</username>
+<password>${client_Id}~?~${client_Secret}</password>
+</server>
+</servers>
+</settings>
